@@ -1,0 +1,17 @@
+{% extends "base.html"  %}
+{% load crispy_forms_tags %}
+
+{% block title %} Registro de usarios {% endblock %}
+{% block content %}
+<div class="col mt-4">
+<form method="post">
+    {% csrf_token %}
+    {{ form2|crispy }}    
+    <div class="area-div">
+        {{ form1|crispy }}
+    </div>
+    <input type="submit" class="btn btn-primary btn-lg btn-block" value="Registro"/>
+</form>
+</div>
+{% endblock %}
+
