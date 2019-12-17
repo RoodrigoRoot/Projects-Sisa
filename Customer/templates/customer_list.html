@@ -2,17 +2,33 @@
 
 {% block content %}
 <div class="">
-        {% for customer in customer_list %}
-            <div class="w-50" >
-            
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">{{customer.name_bussines}}</h4>
-                    </div>
-                </div>
-        
-            </div>
-        {% endfor%}
+    <p class="h2 text-center mb-5">Clientes</p>
+    <table class="table table-dark table-striped table-hover  mx-auto w-75">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Empresa</th>
+                <th scope="col">Representante</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for customer in customer_list %}
+
+            <tr>
+                <th scope="row">{{customer.pk}}</th>
+                <td><h4>{{customer.name_bussines}}</h4></td>
+                <td>{{customer.representative}}</td>
+                <td>{{customer.phone}}</td>
+                <td>{{customer.email}}</td>
+                <td><a href="{% url 'index' %}" class="btn btn-primary">Proyectos</a></td>
+            </tr>
+
+            {% endfor%}
+        </tbody>
+    </table>
 </div>
 
 {% endblock  %}

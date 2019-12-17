@@ -10,6 +10,14 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
     <title>{% block title %} {% endblock %}</title>
 </head>
+<style>
+    #cards:hover{
+        
+        -webkit-box-shadow: 3px 1px 15px 3px rgba(0,0,0,0.75);
+        -moz-box-shadow: 3px 1px 15px 3px rgba(0,0,0,0.75);
+        box-shadow: 3px 1px 15px 3px rgba(0,0,0,0.75);
+    }
+</style>
 <body>
    {% include 'nav.html' %}
     <div class="container-fluid">
