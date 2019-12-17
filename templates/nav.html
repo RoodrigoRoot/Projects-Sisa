@@ -1,3 +1,10 @@
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
   <a class="navbar-brand" href="{% url 'index' %}">Sisa</a>
+  {% if auth  %}
+      <a href="{% url 'logout' %}" class="mr-2 btn btn-outline-primary text-white">Salir</a>
+
+  {% else %}
+      <a href="{% url 'login' %}" class="mr-2 btn btn-outline-primary text-white">Login</a>
+      <a class="text-white" href="{% url 'register' %}" >Registro</a>
+  {% endif %}
 </nav>

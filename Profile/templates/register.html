@@ -3,14 +3,15 @@
 
 {% block title %} Registro de usarios {% endblock %}
 {% block content %}
-<div class="col mt-4">
+ <p class="text-center h2 mt-2">Registro de usuarios</p>
+<div class="col mt-4 w-50 mx-auto">
 <form method="post">
-    {% csrf_token %}
+    {% csrf_token %}    
     {{ form2|crispy }}    
     <div class="area-div">
         {{ form1|crispy }}
     </div>
-    <input type="submit" class="btn btn-primary btn-lg btn-block" value="Registro"/>
+    <input type="submit" class=" mx-auto btn btn-primary btn-lg btn-block w-50" value="Registro"/>
 </form>
 </div>
 {% endblock %}

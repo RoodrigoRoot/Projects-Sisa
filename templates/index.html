@@ -1,8 +1,12 @@
 {% extends "base.html"  %}
 
 {% block content %}
-    
+
     <div class=""> 
-    <h5> Bienvenido: {{ user|capfirst}} </h5>
+        
+    {% if auth %}
+      <h5> Bienvenido: {{ user|capfirst}} </h5>  
+    {% endif %}
+    
     </div>
 {% endblock %}

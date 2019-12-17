@@ -4,11 +4,13 @@ from .models import *
 #Django
 from django.shortcuts import render, redirect
 from django.views.generic import View
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 class RegisterUserView(View):
 
     def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return redirect('index')
         form1 = ProfileRegisterForm()
         form2 = UserRegisterForm()
 
@@ -26,8 +28,12 @@ class RegisterUserView(View):
 
         return render(request, 'register.html', locals())
 
+def logout_view(request):
+    logout(request)
+    return redirect('index')
 
-def loginView(request):  
+    
+def loginUser(request):  
     if request.user.is_authenticated:
         return redirect('index')
         

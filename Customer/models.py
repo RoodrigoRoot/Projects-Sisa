@@ -6,9 +6,13 @@ import uuid
 class Customer(models.Model):
     
     name_bussines = models.CharField(("Empresa"), blank=False, max_length=15)
-    representative = models.CharField(("Encargado de Proyecto"), max_length=50)
-    slug = models.SlugField(null=False, blank=False, unique=True)
-    project = models.TextField()
+    representative = models.CharField(("Representante"), max_length=50)
     phone = models.CharField(("Telefono"), max_length=15)
 
-    
+    def __str__(self):
+        return self.name_bussines
+
+#class Project(models.Model):
+
+#    name_project = models.CharField(("Nombre del Proyecto"), max_length=150)
+#    slug = models.SlugField((""))
