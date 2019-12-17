@@ -28,25 +28,3 @@ class RegisterUserView(View):
 
         return render(request, 'register.html', locals())
 
-def logout_view(request):
-    logout(request)
-    return redirect('index')
-
-    
-def loginUser(request):  
-    if request.user.is_authenticated:
-        return redirect('index')
-        
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-
-        user = authenticate(username=username, password=password)
-        if user:
-            login(request, user)
-            #messages.success(request, "Bienvenido {}".format(username))
-            return redirect('index')
-        else:
-            pass
-            #messages.error(request, "Username or Password not valid")
-    return render(request, 'login.html',locals())
