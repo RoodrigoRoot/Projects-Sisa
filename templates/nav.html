@@ -3,6 +3,7 @@
   
   {% if user.is_authenticated %}
     <a href="{% url 'customers' %}" class="mr-2 btn btn-outline-primary text-white">Clientes</a>    
+    <a href="{% url 'projects' %}" class="mr-2 btn btn-outline-primary text-white">Proyectos</a>   
     <a href="{% url 'logout' %}" class="mr-2 btn btn-outline-primary text-white">Salir</a>
       
   {% else %}

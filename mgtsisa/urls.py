@@ -21,6 +21,7 @@ urlpatterns = [
     path('', IndexView.as_view(), name="index"),
     path('login', loginUser, name="login" ),
     path('logout', logout_view, name="logout" ),
+    path('proyectos/', include('Projects.urls')),
     path('usuarios/', include('Profile.urls')),
     path('clientes/', include('Customer.urls')),
     path('admin/', admin.site.urls),

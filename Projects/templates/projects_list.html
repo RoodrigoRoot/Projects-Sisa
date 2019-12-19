@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex">
+    {% for projects in projects_list  %}
+    <div class="card w-25 mx-auto mt-3">
+        <div class="card-header">
+          {{projects.name_project}}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{projects.bussines}}</h5>
+          <p class="card-text">{{projects.need|truncatewords:10}} <a href="#">Ver mas</a> </p>
+          <a href="#" class="btn btn-primary">Ver Proyecto</a>
+        </div>
+      </div>
+    {% endfor %}
+    <div class="btn-project"><a class="btn btn-primary" href="#">Crear Proyecto</a></div>
+  </div>
+{% endblock %}
