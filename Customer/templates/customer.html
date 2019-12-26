@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Cliente: {{customer.name_bussines}}</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{forms.as_p}}
+        <input type="submit" value="Enviar">
+    </form>
+{% endblock  %}

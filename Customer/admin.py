@@ -4,7 +4,8 @@ from .models import *
 
 class CustomerAdmin(admin.ModelAdmin):
 
-    list_display = ['name_bussines', 'representative', 'phone']
+    list_display = ['name_bussines', 'representative', 'phone','slug']
+    fields = ('name_bussines', 'representative', 'phone', 'email')
     ordering = ['name_bussines']
 
 

@@ -1,18 +1,22 @@
 {% extends 'base.html' %}
+
+{% block title %}Proyectos{% endblock %}
 {% block content %}
-<div class="d-flex">
-    {% for projects in projects_list  %}
-    <div class="card w-25 mx-auto mt-3">
-        <div class="card-header">
-          {{projects.name_project}}
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">{{projects.bussines}}</h5>
-          <p class="card-text">{{projects.need|truncatewords:10}} <a href="#">Ver mas</a> </p>
-          <a href="#" class="btn btn-primary">Ver Proyecto</a>
-        </div>
+<h2 class="text-center">Proyectos</h2>
+{% include "search.html" %}
+<div class="mx-auto mt-3">
+  {% for project in projects_list  %}
+  <div class="mx-auto card w-75 m-2">
+      <div class="card-header">
+        {{project.name_project}}
       </div>
-    {% endfor %}
-    <div class="btn-project"><a class="btn btn-primary" href="#">Crear Proyecto</a></div>
-  </div>
+      <div class="card-body">
+        <h5 class="card-title">{{project.bussines}}</h5>
+        <p class="card-text">{{project.need|truncatewords:10}} <a href="#">Ver mas</a> </p>
+        <a href="{% url 'project_slug' project.slug%}" class="btn btn-primary">Ver Proyecto</a>
+      </div>
+    </div>
+  {% endfor %}
+{% include 'btn_create.html' %}
+</div>
 {% endblock %}
