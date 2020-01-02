@@ -1,9 +1,16 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Editando a: {{customer.name_bussines}} {% endblock %}
 {% block content %}
-    <h2>Cliente: {{customer.name_bussines}}</h2>
+<div class="w-75 mx-auto mt-3">
+    <p>Editando a: <strong class="h2">{{customer.name_bussines}}</strong></p>
     <form method="POST">
         {% csrf_token %}
-        {{forms.as_p}}
-        <input type="submit" value="Enviar">
+        {{forms|crispy}}
+        <div class="d-flex">
+            <input type="submit"  class=" w-100 btn btn-success btn-lg mr-2" value="Confirmar" />
+        <a href="{% url 'customers' %}" class="btn w-100 btn-danger btn-lg ">Cancelar</a>
+        </div>
     </form>
+</div>
 {% endblock  %}

@@ -3,7 +3,7 @@ from .forms import *
 from .models import Customer
 
 #Django
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.views.generic.list import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import View
@@ -43,11 +43,7 @@ class EditCustomerView(View):
     @property
     def get_slug(self):
         return self.kwargs["slug"]
-    
-    
-    def convertTuple(self, tup): 
-        str =  ''.join(tup) 
-        return str
+
     
     def get(self, request, *args, **kwargs):    
         
@@ -56,7 +52,7 @@ class EditCustomerView(View):
         return render(request, 'customer.html', locals())
 
     def post(self, request, *args, **kwargs):
-        customer = False
+        
         
         forms = CustomerUpdateForm(request.POST or None)
         
@@ -70,3 +66,24 @@ class EditCustomerView(View):
             
         
         return render(request, 'customer.html', locals())
+
+
+class DeleteCustomerView(View):
+
+    @property
+    def get_slug(self):
+        return self.kwargs["slug"]
+
+    
+    def get(self, request, *args, **kwargs):
+        customer = Customer.objects.get(slug=self.get_slug)
+        
+        return render(request, 'delete_Customer.html', locals())
+
+    def post(self, request, *args, **kwargs):
+        customer = Customer.objects.get(slug=self.get_slug)
+        deleted = customer.delete()
+        print(deleted)
+        if deleted:
+            return redirect(reverse("index"))
+        return render(request, 'delete_Customer.html', locals())

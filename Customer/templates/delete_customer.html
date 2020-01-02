@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %} Eliminar a {{customer.name_bussines}}{% endblock  %}
+{% block content %}
+    <div class="col">
+        <div class=" text-center mt-3">
+            <h3>¿Estas seguro que deseas eliminar a <span class="text-danger">{{customer.name_bussines}}</span>? </h3>
+        </div>
+
+        <form method="POST">
+            {% csrf_token %}
+            <div class="d-flex">
+                <input type="submit"  class=" w-100 btn btn-success btn-lg mr-2" value="Eliminar" />
+            <a href="{% url 'customers' %}" class="btn w-100 btn-danger btn-lg ">Cancelar</a>
+            </div>
+        </form>
+    </div>
+{% endblock  %}

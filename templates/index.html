@@ -4,10 +4,8 @@
 
     <div class=""> 
 {% if user.is_authenticated %}
-    <p>Welcome, {{ user.get_username }}. Thanks for logging in.</p>
-    
-{% else %}
-    <p>Welcome, new user. Please log in.</p>
+    <p>Welcome, {{ user.first_name }}. Thanks for logging in.</p>
+
 {% endif %}
     </div>
 {% endblock %}

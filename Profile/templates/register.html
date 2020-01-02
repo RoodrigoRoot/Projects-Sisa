@@ -6,13 +6,17 @@
  <p class="text-center h2 mt-2">Registro de usuarios</p>
 <div class="col mt-4 w-50 mx-auto">
 <form method="post">
+
     {% csrf_token %}    
     {{ form2|crispy }}    
     <div class="area-div">
         {{ form1|crispy }}
     </div>
-    <input type="submit" class=" mx-auto btn btn-primary btn-lg btn-block w-50" value="Registro"/>
+    <input type="submit" class=" mx-auto btn btn-primary btn-lg btn-block w-100" value="Registro"/>
 </form>
+<div class="text-center">
+    <p>Tienes cuenta? <a href="{% url 'login'%}">Inicia Sesión</a></p>
+</div>
 </div>
 {% endblock %}
 

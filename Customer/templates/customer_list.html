@@ -33,13 +33,13 @@
                 <td><a href="{% url 'index' %}" class="btn btn-primary mr-2">Proyectos</a>
                     <td><a href="{% url 'edit_customers' customer.slug %}" class="btn btn-success">Editar</a></td>
                     </td>
-                    <td><a href="#" class="mr-3 btn btn-danger">Eliminar</a></td>
+                    <td><a href="{% url 'delete_customers' customer.slug %}" class="mr-3 btn btn-danger">Eliminar</a></td>
             </tr>
 
             {% endfor%}
         </tbody>
     </table>
-    <div class="btn-project"><a class="btn btn-primary btn-lg" href="{% url 'create_customers'%}">Crear Cliente</a>
+    <div class="btn-project"><a class="btn btn-primary btn-lg" href="{% url 'create_customers'%}">Agregar Cliente</a>
     </div>
 </div>
 

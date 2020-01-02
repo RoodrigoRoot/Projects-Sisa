@@ -4,15 +4,14 @@ from Profile.models import Profile
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect 
 from django.template import RequestContext
+
 class IndexView(View):
     
 
     def get(self,request, *args, **kwargs):
         
-        if request.user.is_authenticated:
-            pass
-        else:
-            redirect('login')
+        if not request.user.is_authenticated:           
+            return redirect('login')
             
             
 
